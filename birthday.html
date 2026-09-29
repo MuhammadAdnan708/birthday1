@@ -1,0 +1,1685 @@
+```html
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Aqsa 🌸 — from Fizza (Jannat)</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&family=Pacifico&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, #fce7f3 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, #fef3c7 0%, transparent 45%),
+        linear-gradient(135deg, #fff5f7 0%, #fffbeb 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .font-script {
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .font-pacifico {
+      font-family: 'Pacifico', cursive;
+    }
+
+    .font-urdu {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      line-height: 2.6;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .font-bold-display {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .card-shadow {
+      box-shadow:
+        0 30px 70px -20px rgba(236, 72, 153, 0.3),
+        0 15px 35px -12px rgba(251, 191, 36, 0.25);
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(4deg);
+      }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      25% {
+        transform: scale(1.15);
+      }
+
+      40% {
+        transform: scale(0.97);
+      }
+
+      60% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(25px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    @keyframes riseUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translateY(-115vh) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(105vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes petalFall {
+      0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: translateY(105vh) translateX(60px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .animate-float {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .animate-float-slow {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+
+    .animate-heartbeat {
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    .pop-in {
+      animation: popIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .shimmer-text {
+      background: linear-gradient(90deg, #ec4899, #f59e0b, #ec4899);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 3.5s linear infinite;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      font-size: 2rem;
+      animation: riseUp linear infinite;
+      opacity: 0.55;
+    }
+
+    .petal {
+      position: fixed;
+      top: -10vh;
+      font-size: 1.4rem;
+      animation: petalFall linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .polaroid {
+      background: white;
+      padding: 10px 10px 38px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.06) !important;
+      box-shadow: 0 25px 45px rgba(236, 72, 153, 0.35);
+      z-index: 20;
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #fce7f3, #fef3c7);
+    }
+
+    .polaroid .caption {
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      color: #be185d;
+      font-size: 1.1rem;
+      margin-top: 6px;
+    }
+
+    .photo-frame {
+      background: linear-gradient(135deg, #fbbf24, #f472b6, #a78bfa);
+      padding: 6px;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px -12px rgba(236, 72, 153, 0.4);
+    }
+
+    .photo-frame-inner {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: white;
+    }
+
+    .photo-frame-inner img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gallery-item {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+      cursor: pointer;
+      position: relative;
+      background: linear-gradient(135deg, #fce7f3, #fef3c7);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        transparent 55%,
+        rgba(190, 24, 93, 0.65)
+      );
+      display: flex;
+      align-items: flex-end;
+      padding: 0.7rem;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .confetti-piece {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -20px;
+      animation: fall linear forwards;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .soft-card {
+      background: linear-gradient(135deg, #fff5f7 0%, #fff7ed 100%);
+      border: 1px solid rgba(244, 114, 182, 0.25);
+      border-radius: 1.75rem;
+      padding: 1.5rem;
+    }
+
+    .soft-card-pink {
+      background: linear-gradient(135deg, #fff1f2 0%, #fce7f3 100%);
+      border: 1px solid rgba(236, 72, 153, 0.25);
+      border-radius: 1.75rem;
+      padding: 1.5rem;
+    }
+
+    .soft-card-amber {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 1.75rem;
+      padding: 1.5rem;
+    }
+
+    .soft-card-green {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 1.75rem;
+      padding: 1.5rem;
+    }
+
+    .soft-card-purple {
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 1.75rem;
+      padding: 1.5rem;
+    }
+
+    .divider-heart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: #f472b6;
+    }
+
+    .divider-heart::before,
+    .divider-heart::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #fbcfe8,
+        transparent
+      );
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .big-emoji-line {
+      font-size: 1.25rem;
+      letter-spacing: 0.15em;
+      word-break: break-word;
+    }
+
+    .lightbox-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      animation: popIn 0.3s ease;
+    }
+
+    .lightbox-bg img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 1rem;
+      box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .friendship-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(244, 114, 182, 0.25);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      color: #be185d;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 5px 15px rgba(236, 72, 153, 0.08);
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity 0.4s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating balloons -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="balloon" style="left: 5%; animation-duration: 14s;">🎈</div>
+    <div class="balloon" style="left: 25%; animation-duration: 18s; animation-delay: 3s;">🎈</div>
+    <div class="balloon" style="left: 55%; animation-duration: 16s; animation-delay: 1s;">🎈</div>
+    <div class="balloon" style="left: 78%; animation-duration: 20s; animation-delay: 5s;">🎈</div>
+    <div class="balloon" style="left: 92%; animation-duration: 15s; animation-delay: 2s;">🎈</div>
+  </div>
+
+  <!-- Falling petals -->
+  <div class="petal" style="left: 10%; animation-duration: 9s;">🌸</div>
+  <div class="petal" style="left: 30%; animation-duration: 12s; animation-delay: 2s;">🌷</div>
+  <div class="petal" style="left: 50%; animation-duration: 10s; animation-delay: 4s;">🌸</div>
+  <div class="petal" style="left: 70%; animation-duration: 11s; animation-delay: 1s;">💮</div>
+  <div class="petal" style="left: 88%; animation-duration: 13s; animation-delay: 3s;">🌺</div>
+
+  <div
+    id="app"
+    class="relative z-10 min-h-screen flex items-center justify-center p-4 py-10"
+  >
+
+    <div
+      class="w-full max-w-3xl bg-white/85 backdrop-blur-md rounded-[2.5rem] p-6 md:p-10 card-shadow border border-white/70"
+    >
+
+      <!-- ================= LOCK SCREEN ================= -->
+
+      <div v-if="!isUnlocked" class="pop-in">
+
+        <div class="text-center mb-6">
+
+          <div class="text-7xl animate-float inline-block">
+            🎁
+          </div>
+
+          <h1 class="font-pacifico text-4xl md:text-5xl shimmer-text mt-3">
+            Assalam-o-Alaikum Aqsa!
+          </h1>
+
+          <p class="text-rose-500 font-semibold mt-2 text-lg">
+            Ek chhota sa tohfa hai tumhare liye 🌸
+          </p>
+
+          <p class="text-xs text-amber-500 mt-1 italic">
+            — from your bestie Fizza (Jannat)
+          </p>
+
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-rose-50 to-amber-50 rounded-3xl p-6 border-2 border-dashed border-rose-200"
+        >
+
+          <p class="text-center text-rose-700 font-medium mb-4">
+            🔐 Pehle ye batao... <br>
+            <span class="text-sm text-rose-500 italic">
+              (woh 4 digit ka code jo sirf hum dono jaante hain 😉)
+            </span>
+          </p>
+
+          <div
+            class="flex justify-center gap-3 mb-5"
+            @click="focusInput"
+          >
+
+            <div
+              v-for="n in 4"
+              :key="n"
+              class="w-14 h-16 md:w-16 md:h-20 rounded-2xl flex items-center justify-center text-3xl font-bold border-2 transition-all duration-200"
+              :class="pinFilled(n-1)
+                ? 'bg-rose-400 text-white border-rose-400 scale-105'
+                : 'bg-white border-rose-200 text-rose-300'"
+            >
+              {{ pinDisplay(n-1) }}
+            </div>
+
+          </div>
+
+          <input
+            ref="passwordField"
+            v-model="passwordInput"
+            type="tel"
+            inputmode="numeric"
+            maxlength="4"
+            class="sr-only"
+            @input="handlePinInput"
+            @keyup.enter="checkPassword"
+          />
+
+          <button
+            @click="checkPassword"
+            class="w-full bg-gradient-to-r from-rose-400 to-amber-400 hover:from-rose-500 hover:to-amber-500 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 text-lg flex items-center justify-center gap-2 active:scale-95"
+          >
+            <span>💝</span>
+            Tohfa Kholo
+          </button>
+
+          <div class="mt-5 text-center">
+
+            <button
+              @click="showHint = !showHint"
+              class="text-sm text-rose-500 hover:text-rose-700 font-medium underline decoration-dotted"
+            >
+              {{ showHint ? '🙈 hint chhupa lo' : '🤔 hint chahiye?' }}
+            </button>
+
+            <transition name="fade">
+
+              <div
+                v-if="showHint"
+                class="mt-3 bg-amber-100/80 rounded-2xl p-4 text-amber-800 text-sm italic border border-amber-200"
+              >
+                "Wo number jo humesha hamare beech secret raha... <br>
+                pehla digit 3 hai, aur baaki teen digits 0-0-9 hain. <br>
+                Bas itna hi bataungi, warna surprise ka maza khatam! 😜"
+              </div>
+
+            </transition>
+
+          </div>
+
+          <transition name="fade">
+
+            <p
+              v-if="errorMessage"
+              class="mt-4 text-center text-rose-600 text-sm font-semibold bg-rose-100 py-3 rounded-2xl border border-rose-200"
+            >
+              {{ errorMessage }}
+            </p>
+
+          </transition>
+
+          <p class="text-center text-xs text-rose-400 mt-4">
+            (shhh... sirf hum dono hi ye code jaante hain 🤫)
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- ================= UNLOCKED CONTENT ================= -->
+
+      <div v-else class="pop-in space-y-8">
+
+        <!-- HEADER -->
+
+        <div class="text-center relative">
+
+          <button
+            @click="launchConfetti"
+            class="absolute top-0 right-0 text-2xl hover:scale-125 transition"
+          >
+            🎊
+          </button>
+
+          <div class="text-7xl animate-heartbeat inline-block">
+            🎂
+          </div>
+
+          <h1
+            class="font-pacifico text-4xl md:text-6xl shimmer-text mt-3 leading-tight"
+          >
+            Happiest Birthday Aqsa
+          </h1>
+
+          <p class="big-emoji-line text-2xl mt-3">
+            🖇🫶🏻❤️
+          </p>
+
+          <p class="font-script text-2xl md:text-3xl text-rose-500 mt-3 italic">
+            Meri jaan, apky sath koi ho ya na ho,<br>
+            but mn hmesha apky sath hun —<br>
+            so never ky mera koi nhi hy 🙂❤️
+          </p>
+
+          <div class="divider-heart my-5 text-2xl">
+            ❤️
+          </div>
+
+          <div class="flex justify-center gap-2 flex-wrap mb-3">
+            <span class="friendship-badge">👭 Best Friends</span>
+            <span class="friendship-badge">🌸 Forever</span>
+            <span class="friendship-badge">🫶🏻 Always</span>
+          </div>
+
+          <p class="text-rose-600 font-bold text-xl">
+            ❤️ This is for you, mah girl ❤️
+          </p>
+
+        </div>
+
+        <!-- ================= HERO BEST FRIEND PHOTO ================= -->
+
+        <div class="photo-frame max-w-sm mx-auto">
+
+          <div class="photo-frame-inner">
+
+            <img
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1000&q=85"
+              alt="Two best friends together"
+              class="h-72 w-full object-cover"
+              loading="lazy"
+            />
+
+          </div>
+
+          <p
+            class="text-center text-xs text-white/90 bg-black/30 py-1 -mt-8 relative z-10 rounded-b-2xl"
+          >
+            🫶🏻 Two souls, one friendship — forever 🌸
+          </p>
+
+        </div>
+
+        <!-- ================= FRIENDSHIP INTRO ================= -->
+
+        <div class="soft-card-pink text-center">
+
+          <p class="font-pacifico text-2xl text-rose-600 mb-2">
+            Just Two Besties 💗
+          </p>
+
+          <p class="text-rose-800 leading-relaxed">
+            Duniya mein bohat se log milte hain,
+            lekin kuch log aise hote hain jo
+            dheere dheere family ban jaate hain. 🫂
+            <br><br>
+            Aur mere liye tum unhi logon mein se ho, Aqsa. 🌸
+          </p>
+
+        </div>
+
+        <!-- ================= POLAROID WALL ================= -->
+
+        <div>
+
+          <h2 class="font-pacifico text-3xl text-rose-500 text-center mb-2">
+            Hamari Yaadein 📸
+          </h2>
+
+          <p class="text-center text-xs text-rose-400 italic mb-5">
+            yaadon ki album — click karke bari dekho 💗
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+
+            <div
+              v-for="(photo, i) in gallery"
+              :key="i"
+              class="polaroid"
+              :style="{ transform: 'rotate(' + photo.rotate + 'deg)' }"
+              @click="openLightbox(photo.src, photo.caption)"
+            >
+
+              <img
+                :src="photo.src"
+                :alt="photo.caption"
+                loading="lazy"
+              />
+
+              <p class="caption">
+                {{ photo.caption }}
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ================= BESTIE GRID ================= -->
+
+        <div class="soft-card-pink">
+
+          <h2 class="font-pacifico text-2xl text-rose-600 text-center mb-1">
+            Bestie Grid 🌷
+          </h2>
+
+          <p class="text-center text-xs text-rose-400 italic mb-4">
+            bestie energy • cute moments • forever vibes
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+            <div
+              v-for="(photo, i) in gridPhotos"
+              :key="i"
+              class="gallery-item aspect-square"
+              @click="openLightbox(photo.src, photo.caption)"
+            >
+
+              <img
+                :src="photo.src"
+                :alt="photo.caption"
+                loading="lazy"
+              />
+
+              <div class="overlay">
+                {{ photo.caption }}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ================= URDU POETRY ================= -->
+
+        <div class="soft-card-pink">
+
+          <p class="font-urdu text-xl md:text-2xl text-rose-900 text-center">
+
+            تیری دوستی کی چاہت پر ناز ہے مجھے ❤️🌏<br>
+            تیری ہر ایک بات پر اعتبار ہے مجھے 🌙✨<br>
+            تیرے چہرے پر مسکراہٹ رہے ہمیشہ 👀🫀<br>
+            کیونکہ تیری مسکراہٹ سے پیار ہے مجھے 🖇🫶🏻
+
+          </p>
+
+        </div>
+
+        <!-- ================= SPECIAL MESSAGE ================= -->
+
+        <div class="soft-card-purple text-center">
+
+          <p class="text-rose-800 text-lg leading-relaxed">
+
+            تم میری خواہش نہیں ہو...<br>
+            خواہشات تو ادھوری رہ جاتی ہیں۔<br>
+            اور ہاں، تم میری ضرورت بھی نہیں ہو...<br>
+            ضرورت تو ایک دن پوری ہو جاتی ہے 💓🌸
+
+          </p>
+
+          <p class="text-rose-700 font-bold text-xl mt-4">
+
+            🥹❤️ تم تو میری جان ہو —<br>
+            جب تک تم ہو، تب تک میں ہوں 🙈🫠😁
+
+          </p>
+
+        </div>
+
+        <!-- ================= TODAY BIRTHDAY ================= -->
+
+        <div class="soft-card-amber text-center">
+
+          <p class="text-amber-800 text-lg font-semibold">
+            So Today is your birthday 🥳🎂🌸🥹🙈🫠😁🖇🫶🏻🫀👀🌏✨🌙
+          </p>
+
+          <p class="text-amber-700 text-sm italic mt-2">
+            Aur agr isko urdu mn kaha jy to aesy kahen gy... 🤭😁
+          </p>
+
+          <div class="divider-heart my-4">
+            🌸
+          </div>
+
+          <p class="font-urdu text-2xl md:text-3xl text-amber-900">
+
+            تو آج آپ کی سالگرہ ہے 👀🫀<br>
+            یعنی آج اترا تھا چاند زمین پر ❤️🤭
+
+          </p>
+
+        </div>
+
+        <!-- ================= DUAA ================= -->
+
+        <div class="soft-card-green">
+
+          <p class="text-emerald-800 text-center text-lg leading-relaxed">
+
+            Allah pak meri dost ky naseeb achy kry
+            aur usky naseeb mn hazaron khushiyan likh dy
+            🥰🤲🏻👀🫀✨🌙🫂
+
+            <br><br>
+
+            Aur aj uski birthday ky din uski sari duaen qabool kry
+            <em>(Ameen)</em>
+
+          </p>
+
+        </div>
+
+        <!-- ================= DOSTI ================= -->
+
+        <div class="soft-card">
+
+          <p class="text-rose-700 text-center text-lg">
+
+            Umm... agr tmhari dosti ky bary mn kuch likhun
+            to yun likhun gi 🫠🫂🫶🏻💓🙈
+
+          </p>
+
+          <p class="font-urdu text-xl md:text-2xl text-rose-900 text-center mt-4">
+
+            کہ منزل مل جانے سے دوستی بھلائی نہیں جاتی 🥰🙂<br>
+            اور ہمسفر مل جانے سے دوست بھلائے نہیں جاتے ❤️
+
+          </p>
+
+        </div>
+
+        <!-- ================= SECOND BEST FRIEND PHOTO ================= -->
+
+        <div class="flex flex-col md:flex-row gap-5 items-center">
+
+          <div class="photo-frame w-56 shrink-0 rotate-[-3deg]">
+
+            <div class="photo-frame-inner">
+
+              <img
+                src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=700&q=85"
+                alt="Best friends laughing"
+                class="h-56 w-full object-cover"
+                loading="lazy"
+              />
+
+            </div>
+
+          </div>
+
+          <div class="soft-card-pink flex-1">
+
+            <p class="text-rose-800 text-base leading-relaxed">
+
+              Ye tasveer sirf ek yaad nahi —
+              ye humari
+              <span class="font-bold text-rose-600">
+                dosti ki kahani
+              </span>
+              hai.
+
+              Do log, bohat sari baatein,
+              endless laughter aur woh moments
+              jo shabdon mein bayan nahi ho sakte. 🫶
+
+              <br><br>
+
+              Chahe hum kitni bhi door chale jaayein,
+              ye yaadein humesha humein jod kar rakhengi.
+
+              I love you, Aqsa. 💖
+
+            </p>
+
+            <p class="text-right text-xs text-rose-500 mt-3 italic">
+              — Fizza (Jannat)
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- ================= DEAR BESTIE ================= -->
+
+        <div class="soft-card-amber">
+
+          <p class="font-bold-display text-center text-xl md:text-2xl text-amber-800 mb-4">
+            𝐃𝐞𝐚𝐫 𝐁𝐞𝐬𝐭𝐢𝐞 🍷🦋💌
+          </p>
+
+          <p class="text-amber-900 leading-relaxed text-base md:text-lg">
+
+            𝐓𝐨𝐝𝐚𝐲 𝐢𝐬 𝐚 𝐬𝐩𝐞𝐜𝐢𝐚𝐥 𝐝𝐚𝐲 𝐟𝐨𝐫 𝐦𝐞
+            𝐛𝐞𝐜𝐚𝐮𝐬𝐞 𝐢𝐭𝐬 𝐲𝐨𝐮𝐫 𝐛𝐢𝐫𝐭𝐡𝐝𝐚𝐲 👉🏻👈🏻💗😚
+
+            𝐇𝐚𝐯𝐢𝐧𝐠 𝐲𝐨𝐮 𝐚𝐬 𝐚 𝐛𝐞𝐬𝐭𝐟𝐫𝐢𝐞𝐧𝐝
+            𝐢𝐬 𝐨𝐧𝐞 𝐨𝐟 𝐭𝐡𝐞 𝐠𝐫𝐞𝐚𝐭𝐞𝐬𝐭
+            𝐛𝐥𝐞𝐬𝐬𝐢𝐧𝐠'𝐬 𝐢𝐧 𝐦𝐲 𝐥𝐢𝐟𝐞 💛🧡🍰
+
+            𝐘𝐨𝐮 𝐡𝐚𝐯𝐞 𝐛𝐞𝐞𝐧 𝐦𝐲 𝐫𝐨𝐜𝐤,
+            𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐭𝐡𝐢𝐜𝐤 𝐚𝐧𝐝 𝐭𝐡𝐢𝐧 🍻🍩🍪
+
+            𝐈 𝐡𝐨𝐩𝐞 𝐭𝐡𝐢𝐬 𝐜𝐚𝐫𝐝 𝐛𝐫𝐢𝐧𝐠'𝐬
+            𝐲𝐨𝐮 𝐥𝐨𝐯𝐞 🍭🍬
+            𝐞𝐧𝐜𝐨𝐮𝐫𝐚𝐠𝐞𝐦𝐞𝐧𝐭,
+            𝐚 𝐬𝐦𝐢𝐥𝐞 𝐨𝐧 𝐲𝐨𝐮𝐫 𝐟𝐚𝐜𝐞,
+            𝐚𝐧𝐝 𝐡𝐚𝐩𝐩𝐲 𝐯𝐢𝐛𝐞𝐬
+            𝐭𝐡𝐫𝐨𝐮𝐠𝐡𝐨𝐮𝐭 𝐲𝐨𝐮𝐫 𝐬𝐩𝐞𝐜𝐢𝐚𝐥 𝐝𝐚𝐲 😘🤗👀💗
+
+            <br><br>
+
+            𝐢 𝐥𝐨𝐯𝐞 𝐲𝐨𝐮 𝐯𝐞𝐫𝐲 𝐦𝐮𝐜𝐡 💌👑💎
+
+            <br>
+
+            𝐇𝐚𝐩𝐩𝐲 𝐁𝐢𝐫𝐭𝐡𝐝𝐚𝐲
+            𝐃𝐞𝐚𝐫 𝐁𝐞𝐬𝐭𝐢𝐞 🎂🍫
+
+            <br>
+
+            𝐌𝐚𝐲 𝐲𝐨𝐮 𝐥𝐢𝐯𝐞 𝐥𝐨𝐧𝐠
+            (𝐚𝐦𝐞𝐞𝐧) 🌸💐🌺🍃
+
+          </p>
+
+        </div>
+
+        <!-- ================= URDU BIRTHDAY WISHES ================= -->
+
+        <div class="soft-card-pink">
+
+          <p class="font-urdu text-xl md:text-2xl text-rose-900 text-center leading-loose">
+
+            سالگرہ مبارک ہو سکون قلب 🤌🏻❤️<br>
+
+            آپ کی زندگی ہمیشہ خوشیوں سے بھرپور ہو 🫶🏻🩷<br>
+
+            آپ کی زندگی پھولوں کی طرح مہکتی رہے 🌸🎊<br>
+
+            ستاروں کی طرح چمکتی رہے 🌙💫<br>
+
+            تمہارا ہر قدم کسی خوش نصیبی کی طرف بڑھے،<br>
+
+            اور تمہاری زندگی کا ہر صفحہ خوشیوں سے بھرا ہو 😫🫂<br>
+
+            تمہارے لیے میری ہر دعا، ہر سانس میں شامل ہے ✨💫<br>
+
+            یہ سالگرہ تمہیں ہر نئی خوشی، نئی امیدیں،
+            اور تمہیں ہمیشہ خوش رکھے 👀🫀
+
+          </p>
+
+          <p class="text-center text-rose-700 font-bold text-xl mt-4">
+            آمین ثم آمین 🤲🏻🩷
+          </p>
+
+        </div>
+
+        <!-- ================= CHOCOLATE LOVER 1 ================= -->
+
+        <div class="soft-card-amber">
+
+          <p class="text-amber-800 font-bold text-lg mb-2">
+            Chocolate Lover 💘:
+          </p>
+
+          <p class="text-amber-900 leading-relaxed">
+
+            Happy birthday dear best friend 🥳
+            you have always a part of my happiest moments
+            💞🫶 as well as my gloom ones 😇
+
+            I am lucky to have a friend of life time 🥹
+            with whom I can express my thoughts 😊
+            and share my dreams on your special day 🫀❤️
+
+            I hope you can receive the love and care
+            you deserve ✨💫🌹
+
+          </p>
+
+          <p class="text-amber-800 font-semibold mt-3">
+
+            Happy birthday one of the most special person
+            of my life 🥳🫶🌎
+
+          </p>
+
+          <p class="text-right text-amber-600 text-sm mt-2">
+            .... 🌹🫶😊
+          </p>
+
+        </div>
+
+        <!-- ================= CHOCOLATE LOVER 2 ================= -->
+
+        <div class="soft-card-pink">
+
+          <p class="text-rose-700 font-bold text-lg mb-3">
+            Chocolate Lover 💘:
+          </p>
+
+          <p class="text-rose-900 font-bold text-xl text-center mb-3">
+            🎂☙𝗠𝘆 𝗯𝗲𝘀𝘁𝗶𝗲 𝗯𝗶𝗿𝘁𝗵𝗱𝗮𝘆☙🎂
+          </p>
+
+          <p class="text-rose-700 font-semibold text-center text-lg mb-4">
+            ♡ 𝘔𝘦𝘳𝘪 𝘫𝘢𝘢𝘯 𝘣𝘦𝘴𝘵𝘪𝘦 💋🫂 ♡
+          </p>
+
+          <p class="text-rose-900 text-center leading-relaxed">
+
+            ᴀᴊ ᴋᴀ ᴅɪɴ sɪʀғ ᴀᴘᴋʏ ɴᴀᴀᴍ.... 🤌💫🫀<br>
+
+            ʙᴇᴄᴀᴜsᴇ ᴀᴘ ᴍᴇʀɪ ʟɪғᴇ ᴋɪ
+            ᴡᴏ ᴄʜᴇᴢ ʜᴏ ᴊᴏ ʜʀ ᴅɪɴ ᴋᴏ
+            sᴘᴇᴄɪᴀʟ ʙɴᴀ ᴅᴇᴛɪ ʜʏ... 🙈🕊😉
+
+          </p>
+
+          <div class="divider-heart my-4">
+            💗
+          </div>
+
+          <p class="text-rose-900 text-center font-semibold">
+
+            𝑫𝒖𝒏𝒊𝒚𝒂 𝒎𝒏 𝒃𝒐𝒉𝒕 𝒍𝒐𝒈 𝒎𝒊𝒍𝒕𝒚 𝒉𝒏
+            𝒍𝒆𝒌𝒊𝒏 𝒂𝒑 𝒋𝒆𝒔𝒊 𝒅𝒐𝒔𝒕 𝒌𝒊𝒔𝒊
+            𝒌𝒐 𝒏𝒉𝒊 𝒎𝒊𝒍𝒕𝒊 😌💞
+
+          </p>
+
+          <p class="text-rose-800 text-center font-semibold mt-3">
+
+            𝐴𝑝 𝑠𝑖𝑟𝑓 𝑚𝑒𝑟𝑖 𝑏𝑒𝑠𝑡𝑖𝑒 𝑛ℎ𝑖...<br>
+
+            𝐴𝑝 𝑚𝑒𝑟𝑖 𝑏𝑎𝑐ℎ𝑝𝑎𝑛
+            𝑘𝑖 𝑠𝑎ℎ𝑒𝑙𝑖 ℎ𝑜 🫂💝
+
+          </p>
+
+        </div>
+
+        <!-- ================= SOUL FRIEND ================= -->
+
+        <div class="soft-card-green text-center">
+
+          <p class="text-emerald-800 font-bold text-xl mb-2">
+
+            𝐇𝐚𝐩𝐩𝐲 𝐛𝐢𝐫𝐭𝐡𝐝𝐚𝐲
+            𝐭𝐨 𝐦𝐲 𝐬𝐨𝐮𝐥 𝐟𝐫𝐢𝐞𝐧𝐝 🎂🌎
+
+          </p>
+
+          <p class="text-emerald-700 font-semibold">
+
+            𝐀𝐥𝐥𝐚𝐡 𝐩𝐚𝐤 𝐚𝐩𝐤𝐨
+            𝐡𝐦𝐞𝐬𝐡𝐚 𝐤𝐡𝐮𝐬𝐡 𝐫𝐚𝐤𝐡𝐲 🤲🏻🫀
+
+          </p>
+
+        </div>
+
+        <!-- ================= FINAL DUAA ================= -->
+
+        <div class="soft-card-purple">
+
+          <p class="font-urdu text-xl md:text-2xl text-purple-900 text-center leading-loose">
+
+            وقت آپکو زندہ رکھے اقصیٰ<br>
+
+            بہاریں آپ پر فدا ہو جائیں<br>
+
+            آپ میرے علاوہ ہر بلا سے محفوظ رہیں<br>
+
+            خدا آپ کو تکلیف پہنچانے والوں سے دور رکھے<br>
+
+            بے سکونی کے سائے اندھے اور بہرے ہو جائیں<br>
+
+            آپ کا ہر دکھ میرا ہو جائے<br>
+
+            خدا میری زندگی بھی آپکو لگا دے<br>
+
+            رحمتوں کے دروازے آپ پر کھلیں<br>
+
+            اور انہیں کبھی بند ہونے کا حکم نہ ملے
+
+          </p>
+
+          <p class="text-center text-purple-700 font-bold text-2xl mt-4">
+            (آمین)
+          </p>
+
+        </div>
+
+        <!-- ================= FRIENDSHIP QUOTE ================= -->
+
+        <div class="soft-card-pink text-center">
+
+          <p class="font-script text-3xl text-rose-600">
+
+            "Dosti ki kasam,
+            tum meri favourite insaan ho Aqsa."
+
+          </p>
+
+          <p class="text-xs text-rose-500 mt-2">
+            — always & forever, Fizza (Jannat)
+          </p>
+
+        </div>
+
+        <!-- ================= CANDLE GAME ================= -->
+
+        <div class="soft-card-amber text-center">
+
+          <h2 class="font-pacifico text-2xl text-amber-700 mb-1">
+            Ek Wish Maango 🕯
+          </h2>
+
+          <p class="text-sm text-amber-600 mb-4">
+            Candle pe click karke blow karo, Aqsa!
+          </p>
+
+          <div class="flex justify-center items-end gap-2 mb-4">
+
+            <div class="relative">
+
+              <div class="flex justify-center gap-2 mb-1">
+
+                <span
+                  v-for="n in 3"
+                  :key="n"
+                  class="text-3xl transition-all duration-300"
+                  :class="candlesBlown
+                    ? 'opacity-30 grayscale'
+                    : 'animate-float-slow'"
+                  :style="{ animationDelay: (n * 0.2) + 's' }"
+                >
+                  {{ candlesBlown ? '💨' : '🕯' }}
+                </span>
+
+              </div>
+
+              <div class="text-6xl">
+                🎂
+              </div>
+
+            </div>
+
+          </div>
+
+          <button
+            v-if="!candlesBlown"
+            @click="blowCandles"
+            class="bg-amber-400 hover:bg-amber-500 text-white px-6 py-2 rounded-full font-bold transition active:scale-95"
+          >
+            🌬 Blow Candles
+          </button>
+
+          <div
+            v-else
+            class="text-amber-700 font-bold text-lg"
+          >
+
+            🎉 Wish poori ho tumhari, Aqsa! 🎉
+
+            <p class="text-sm text-amber-600 mt-1 font-normal">
+              (ab cake kaat ke mujhe bhi dena 😋)
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- ================= SECRET MESSAGE ================= -->
+
+        <div class="text-center">
+
+          <button
+            @click="showSecret = !showSecret"
+            class="text-sm text-rose-500 hover:text-rose-700 font-medium underline decoration-dotted transition"
+          >
+            {{ showSecret
+              ? '🙈 secret chhupa lo'
+              : '💌 ek secret message parho' }}
+          </button>
+
+          <transition name="fade">
+
+            <div
+              v-if="showSecret"
+              class="mt-4 bg-white/80 rounded-2xl p-5 border border-rose-200 italic text-rose-700"
+            >
+
+              "Aqsa, main tumhe kabhi nahi chhodungi.
+              Chahe tum kitni bhi door chali jao,
+              chahe hum kitna bhi busy ho jaayein —
+              tum meri hamesha ki bestie rahogi.
+
+              Tum meri zindagi ka woh hissa ho
+              jise main kabhi khona nahi chahti.
+
+              Happy Birthday once again! 🥳💖"
+
+              <p class="text-right text-xs text-rose-500 mt-3 not-italic">
+                — Fizza (Jannat)
+              </p>
+
+            </div>
+
+          </transition>
+
+        </div>
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <div class="flex flex-wrap gap-3 justify-center pt-2">
+
+          <button
+            @click="launchConfetti"
+            class="bg-amber-400 hover:bg-amber-500 text-white px-5 py-2 rounded-full font-bold transition active:scale-95 text-sm"
+          >
+            🎊 Confetti!
+          </button>
+
+          <button
+            @click="lockAgain"
+            class="bg-rose-200 hover:bg-rose-300 text-rose-700 px-5 py-2 rounded-full font-bold transition active:scale-95 text-sm"
+          >
+            🔒 Lock Again
+          </button>
+
+        </div>
+
+        <!-- ================= FOOTER ================= -->
+
+        <div class="text-center pt-4 border-t border-rose-200/60">
+
+          <p class="text-xs text-rose-400">
+
+            Made with 💖 by
+            <span class="font-bold text-rose-500">
+              Adnan
+            </span>
+            — sirf Aqsa ke liye
+
+          </p>
+
+          <p class="text-[10px] text-rose-300 mt-1">
+
+            © {{ new Date().getFullYear() }}
+            — A wish from Fizza (Jannat) to Aqsa 🌸
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= LIGHTBOX ================= -->
+
+    <transition name="fade">
+
+      <div
+        v-if="lightbox.show"
+        class="lightbox-bg"
+        @click="closeLightbox"
+      >
+
+        <span
+          class="lightbox-close"
+          @click="closeLightbox"
+        >
+          ✕
+        </span>
+
+        <div
+          class="text-center"
+          @click.stop
+        >
+
+          <img
+            :src="lightbox.src"
+            :alt="lightbox.caption"
+          />
+
+          <p class="text-white font-script text-2xl mt-3">
+            {{ lightbox.caption }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </transition>
+
+  </div>
+
+  <!-- ================= VUE ================= -->
+
+  <script>
+
+    const {
+      createApp,
+      ref,
+      nextTick,
+      onMounted
+    } = Vue;
+
+    createApp({
+
+      setup() {
+
+        /* ================= PASSWORD ================= */
+
+        const correctPassword = '3009';
+
+        const passwordInput = ref('');
+
+        const isUnlocked = ref(false);
+
+        const errorMessage = ref('');
+
+        const showHint = ref(false);
+
+        const showSecret = ref(false);
+
+        const candlesBlown = ref(false);
+
+        const passwordField = ref(null);
+
+
+        /* ================= LIGHTBOX ================= */
+
+        const lightbox = ref({
+          show: false,
+          src: '',
+          caption: ''
+        });
+
+        const openLightbox = (src, caption) => {
+
+          lightbox.value = {
+            show: true,
+            src,
+            caption
+          };
+
+          document.body.style.overflow = 'hidden';
+
+        };
+
+        const closeLightbox = () => {
+
+          lightbox.value.show = false;
+
+          document.body.style.overflow = '';
+
+        };
+
+
+        /* ================= BEST FRIEND GALLERY ================= */
+
+        const gallery = ref([
+
+          {
+            src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=85",
+            caption: "Bestie moments 🫶🏻",
+            rotate: -3
+          },
+
+          {
+            src: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=700&q=85",
+            caption: "Always together 🌸",
+            rotate: 2
+          },
+
+          {
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvtwG8cUUNjphaIWbriS3uCD4Hu8MDY99lM-gRaKNxIw&s",
+            caption: "Laughing together 😂❤️",
+            rotate: -2
+          },
+
+          {
+            src: "https://w0.peakpx.com/wallpaper/549/3/HD-wallpaper-boy-and-girl-best-friend-forever-boy-and-girl-best-friend.jpg",
+            caption: "Pretty besties 💗",
+            rotate: 3
+          },
+
+          {
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8H4i33q6rubiG-Vtaa5l8KYEtlY1dcu0pDsZ-1SB9Ivs1muVU9a3-eXk&s=10",
+            caption: "Forever friendship ✨",
+            rotate: -4
+          },
+
+          {
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7qDRnZ7UXkLi_aGWGsBNPz9Fg1rO4gLJXXu1W0AzcOJj0eKs0Jx9PEwOD&s=10",
+            caption: "Memories with you 🌷",
+            rotate: 2
+          }
+
+        ]);
+
+
+        /* ================= BESTIE GRID ================= */
+
+        const gridPhotos = ref([
+
+          {
+            src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=85",
+            caption: "Best friends forever 🫂"
+          },
+
+          {
+            src: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=600&q=85",
+            caption: "Crazy together 😂"
+          },
+
+          {
+            src: "https://static.vecteezy.com/system/resources/thumbnails/045/097/409/small/best-friends-friendship-watercolor-illustration-free-vector.jpg",
+            caption: "Our little world 🌎"
+          },
+
+          {
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpe7i5ydA0EXWTEJkQasJkVYNXOR_91AACBFW-fbOHZMXzn5pjhCdMiRQ&s=10",
+            caption: "Bestie energy 💕"
+          },
+
+          {
+            src: "https://i.pinimg.com/236x/0f/1f/0d/0f1f0d96a9db61c6eabfd6bf3a54cfae.jpg",
+            caption: "Candid memories 📸"
+          },
+
+          {
+            src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=85",
+            caption: "Forever us 🌸"
+          },
+
+          {
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Qx0el_cWRSpVjByeYrd_RzVgrQgGkf6yHkqvplByhVDhnZHDA8Iisaa4&s=10",
+            caption: "Chai & talks ☕"
+          },
+
+          {
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThgS42O4tAIt3tVU0uDqCY43EZIIBGnwA7HpyW2CBDPcYkWwUi5PUnsJNK&s=10",
+            caption: "Endless laughs 🫶🏻"
+          }
+
+        ]);
+
+
+        /* ================= PIN ================= */
+
+        const pinDisplay = (index) => {
+
+          return passwordInput.value[index]
+            ? '•'
+            : '';
+
+        };
+
+        const pinFilled = (index) => {
+
+          return passwordInput.value.length > index;
+
+        };
+
+
+        const handlePinInput = (e) => {
+
+          let val = e.target.value
+            .replace(/\D/g, '')
+            .slice(0, 4);
+
+          passwordInput.value = val;
+
+          e.target.value = val;
+
+          if (val.length === 4) {
+
+            setTimeout(checkPassword, 200);
+
+          }
+
+        };
+
+
+        const focusInput = () => {
+
+          if (passwordField.value) {
+
+            passwordField.value.focus();
+
+          }
+
+        };
+
+
+        /* ================= PASSWORD CHECK ================= */
+
+        const checkPassword = () => {
+
+          if (passwordInput.value === correctPassword) {
+
+            isUnlocked.value = true;
+
+            errorMessage.value = '';
+
+            passwordInput.value = '';
+
+            nextTick(() => launchConfetti());
+
+          } else {
+
+            errorMessage.value =
+              '❌ Galat code! Soch soch... woh special number yaad karo 😉';
+
+            passwordInput.value = '';
+
+            if (passwordField.value) {
+
+              passwordField.value.value = '';
+
+            }
+
+            nextTick(() => focusInput());
+
+          }
+
+        };
+
+
+        /* ================= LOCK AGAIN ================= */
+
+        const lockAgain = () => {
+
+          isUnlocked.value = false;
+
+          passwordInput.value = '';
+
+          errorMessage.value = '';
+
+          showSecret.value = false;
+
+          showHint.value = false;
+
+          candlesBlown.value = false;
+
+          nextTick(() => focusInput());
+
+        };
+
+
+        /* ================= CANDLE ================= */
+
+        const blowCandles = () => {
+
+          candlesBlown.value = true;
+
+          launchConfetti();
+
+        };
+
+
+        /* ================= CONFETTI ================= */
+
+        const launchConfetti = () => {
+
+          const colors = [
+            '#f472b6',
+            '#fbbf24',
+            '#60a5fa',
+            '#34d399',
+            '#a78bfa',
+            '#fb7185'
+          ];
+
+          for (let i = 0; i < 90; i++) {
+
+            const piece =
+              document.createElement('div');
+
+            piece.className =
+              'confetti-piece';
+
+            piece.style.left =
+              Math.random() * 100 + 'vw';
+
+            piece.style.backgroundColor =
+              colors[
+                Math.floor(
+                  Math.random() * colors.length
+                )
+              ];
+
+            piece.style.width =
+              (Math.random() * 8 + 6) + 'px';
+
+            piece.style.height =
+              (Math.random() * 8 + 6) + 'px';
+
+            piece.style.borderRadius =
+              Math.random() > 0.5
+                ? '50%'
+                : '2px';
+
+            piece.style.animationDuration =
+              (Math.random() * 2 + 2) + 's';
+
+            piece.style.animationDelay =
+              (Math.random() * 0.5) + 's';
+
+            document.body.appendChild(piece);
+
+            setTimeout(() => {
+
+              piece.remove();
+
+            }, 4000);
+
+          }
+
+        };
+
+
+        /* ================= MOUNT ================= */
+
+        onMounted(() => {
+
+          nextTick(() => {
+
+            focusInput();
+
+          });
+
+        });
+
+
+        return {
+
+          passwordInput,
+          isUnlocked,
+          errorMessage,
+          showHint,
+          showSecret,
+          candlesBlown,
+          passwordField,
+
+          pinDisplay,
+          pinFilled,
+
+          handlePinInput,
+          focusInput,
+          checkPassword,
+          lockAgain,
+
+          blowCandles,
+          launchConfetti,
+
+          gallery,
+          gridPhotos,
+
+          lightbox,
+          openLightbox,
+          closeLightbox
+
+        };
+
+      }
+
+    }).mount('#app');
+
+  </script>
+
+</body>
+</html>
+```
